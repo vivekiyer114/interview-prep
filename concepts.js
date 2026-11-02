@@ -451,7 +451,7 @@ window.CONCEPTS = [
     id: "ai",
     label: "AI Engineering",
     title: "The {n} AI engineering concepts from building assistants and agents.",
-    intro: "LLM basics, retrieval, agents, guardrails and evaluation, drawn from the AI assistant, the support agent and the team's coding-agent skills at Khyaal.",
+    intro: "LLM basics, retrieval, agents, guardrails and evaluation, drawn from the AI assistant, the support agent, the voice sales agent and the team's coding-agent skills at Khyaal.",
     categories: [
       {
         name: "LLM Foundations",
@@ -523,7 +523,9 @@ window.CONCEPTS = [
           ["User Feedback Signals", "Thumbs up and down, follow-up questions and abandonment show answer quality from the user's side."],
           ["Offline Evals & Golden Sets", "A fixed set of questions with expected answers, run on every prompt or model change to catch regressions."],
           ["LLM-as-Judge", "A model grades outputs against a rubric at scale, checked regularly against human judgement."],
-          ["Tracing LLM Calls", "Record prompts, tool calls, tokens, latency and cost for each step, to debug and optimise AI flows."]
+          ["Tracing LLM Calls", "Record prompts, tool calls, tokens, latency and cost for each step, to debug and optimise AI flows."],
+          ["Post-Call Analysis & Lead Scoring", "After each call an LLM reads the transcript and returns the intent, a summary and a hot or cold lead score for the sales team."],
+          ["Call Outcome Metrics", "Connect rate, talk time, completion and conversion show whether a voice agent is reaching people and actually selling."]
         ]
       },
       {
@@ -536,6 +538,24 @@ window.CONCEPTS = [
           ["Generative UI", "The model returns typed objects that render as cards, lists and buttons instead of plain text."],
           ["Idle Timeouts & Session Closure", "Close and summarise a conversation after inactivity or when the page is hidden, for analytics and memory."],
           ["Progressive TTS Chunking", "Synthesise speech in small chunks first, then larger ones, so audio starts quickly without too many calls."]
+        ]
+      },
+      {
+        name: "Voice Agents & Telephony",
+        blurb: "AI agents that hold real phone conversations.",
+        items: [
+          ["Voice Agent Pipelines (STT → LLM → TTS)", "Speech-to-text, an LLM and text-to-speech run as one streaming chain, so the agent listens, thinks and speaks in near real time."],
+          ["Pipecat & Frame-Based Pipelines", "Pipecat passes audio, text and control frames through a chain of processors, so speech services, LLMs and transports plug together."],
+          ["Telephony APIs & Call Webhooks", "Providers like Plivo, Exotel and Twilio place calls through an API and report answer, recording and hangup events to your webhooks."],
+          ["Media Streams over WebSockets", "The phone provider streams live call audio to your server over a WebSocket, and the agent streams its speech back the same way."],
+          ["Turn-Taking, VAD & Barge-In", "Voice activity detection decides when the caller has finished speaking; barge-in lets them interrupt the agent mid-sentence."],
+          ["Voice Latency Budgets", "Callers notice gaps of about a second, so STT, LLM and TTS time must be budgeted and streamed rather than run one after another."],
+          ["Speech Models for Indian Languages", "STT and TTS models tuned for Hindi, other Indian languages and Hinglish, such as Sarvam, handle local accents and mixed speech better."],
+          ["Language Detection & Code-Switching", "Detect the caller's language from their first reply, then switch prompts and voice, including mixed Hindi-English speech."],
+          ["Outbound Call Orchestration", "A queue-driven worker takes leads, places calls, schedules retries and records every outcome, so campaigns run without manual dialling."],
+          ["Call Concurrency Limits", "A semaphore caps simultaneous calls to fit provider and model limits; releasing it reliably on hangup prevents stuck capacity."],
+          ["Voicemail & No-Answer Handling", "Classify unanswered, busy and voicemail outcomes, so the agent hangs up quickly and retries at a better time."],
+          ["Call Recording & Consent", "Record calls only with notice or consent, store recordings securely and keep them only as long as policy allows."]
         ]
       },
       {
