@@ -5,8 +5,8 @@ window.CONCEPTS = [
   {
     id: "fundamentals",
     label: "Fundamentals",
-    title: "The {n} concepts behind three years at Khyaal.",
-    intro: "Everything here comes from the platform, payments, web and infrastructure work at Khyaal, or sits right next to it. Read the one-liner, go deep on your own, then mark it done.",
+    title: "The {n} concepts behind three years of production engineering.",
+    intro: "Everything here comes from the platform, payments, web and infrastructure work of the last three years, or sits right next to it. Read the one-liner, go deep on your own, then mark it done.",
     categories: [
       {
         name: "Security",
@@ -451,7 +451,7 @@ window.CONCEPTS = [
     id: "ai",
     label: "AI Engineering",
     title: "The {n} AI engineering concepts from building assistants and agents.",
-    intro: "LLM basics, retrieval, agents, guardrails and evaluation, drawn from the AI assistant, the support agent, the voice sales agent and the team's coding-agent skills at Khyaal.",
+    intro: "LLM basics, retrieval, agents, guardrails and evaluation, drawn from the AI assistant, the support agent, the voice sales agent and the team's coding-agent skills.",
     categories: [
       {
         name: "LLM Foundations",

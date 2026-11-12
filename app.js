@@ -1,7 +1,8 @@
 (function () {
   "use strict";
 
-  var STORE_KEY = "khyaal-prep:v1";
+  var STORE_KEY = "prep-desk:v1";
+  var LEGACY_KEY = "khyaal-prep:v1"; // read once so existing progress carries over
   var CHECK_SVG = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   var TIER_LABELS = { core: "Core", google: "Google", stretch: "Stretch", awareness: "Awareness" };
   var DIFF_LABELS = { E: "Easy", M: "Medium", H: "Hard" };
@@ -84,7 +85,15 @@
   // Done state lives in localStorage; the page still works if storage is blocked.
   function loadDone() {
     try {
-      var saved = JSON.parse(localStorage.getItem(STORE_KEY) || "[]");
+      var raw = localStorage.getItem(STORE_KEY);
+      if (raw === null) {
+        raw = localStorage.getItem(LEGACY_KEY);
+        if (raw !== null) {
+          localStorage.setItem(STORE_KEY, raw);
+          localStorage.removeItem(LEGACY_KEY);
+        }
+      }
+      var saved = JSON.parse(raw || "[]");
       return new Set(Array.isArray(saved) ? saved : []);
     } catch (e) {
       return new Set();
